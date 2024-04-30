@@ -9,7 +9,7 @@ const commentSchema = new mongoose.Schema(
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
-)
+);
 
 const hootSchema = new mongoose.Schema(
   {
@@ -30,8 +30,8 @@ const hootSchema = new mongoose.Schema(
     comments: [commentSchema]
   },
   { timestamps: true }
-)
+);
 
-const Hoot = mongoose.model('Hoot', hootSchema)
+const Hoot = mongoose.model('Hoot', hootSchema);
 
-module.exports = Hoot
+module.exports = Hoot;
