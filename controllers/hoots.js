@@ -55,6 +55,8 @@ router.put('/:hootId', async (req, res) => {
       { new: true }
     )
 
+    updatedHoot._doc.author = req.user;
+
     res.status(200).json(updatedHoot);
   } catch (error) {
     res.status(500).json(error);
