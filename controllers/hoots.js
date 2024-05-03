@@ -97,27 +97,4 @@ router.post('/:hootId/comments', async (req, res) => {
   }
 });
 
-router.put('/:hootId/comments/:commentId', async (req, res) => {
-  try {
-    const hoot = await Hoot.findById(req.params.hootId);
-    const comment = hoot.comments.id(req.params.commentId);
-    comment.text = req.body.text;
-    await hoot.save();
-    res.status(200).json({ message: "Ok"});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.delete('/:hootId/comments/:commentId', async (req, res) => {
-  try {
-    const hoot = await Hoot.findById(req.params.hootId);
-    hoot.comments.remove({ _id: req.params.commentId });
-    await hoot.save();
-    res.status(200).json({ message: "Ok"});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 module.exports = router;
